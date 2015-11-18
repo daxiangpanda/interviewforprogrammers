@@ -1,9 +1,21 @@
 __author__ = '31351'
 
-import myStack
-s=myStack.MyStack()
-s.push(5)
-s.push(8)
-s.push(3)
-s.push(6)
-print s.getMin()
+import SandQ
+#s=myStack.Stack()
+import DandC
+dac = DandC.DogCatQueue()
+cat = DandC.Cat()
+print cat.getPetType()
+dog = DandC.Dog()
+dac.add(cat)
+dac.add(cat)
+dac.add(dog)
+dac.add(dog)
+dac.add(cat)
+dac.add(dog)
+dac.add(cat)
+
+dac.pollCat()
+print dac.isEmpty()
+print dac.isCatQueueEmpty()
+print dac.isDogQueueEmpty()
