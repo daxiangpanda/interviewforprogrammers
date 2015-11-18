@@ -21,9 +21,9 @@ class Cat(Pet):
         Pet.__init__(self,self.type)
 
 
-class PetEnterQueue:
-    def __init__(self):
-        self.pet = Pet()
+class PetEnterQueue(Pet):
+    def __init__(self,pet,count):
+        self.pet = Pet(self)
         self.count = count
 
     def getPet(self):
@@ -84,3 +84,4 @@ class DogCatQueue:
 
     def isCatQueueEmpty(self):
         return self.catQ.isEmpty()
+

@@ -84,6 +84,10 @@ class myQueue:
         self.stackPop.printStack()
 
 
+    def isEmpty(self):
+        return len(self.stackPush) == 0
+
+
 def getAndRemoveLast(s):
     result = s.pop()
     if s.isEmpty():
