@@ -24,8 +24,7 @@ class Stack:
         return len(self.items)
 
     def printStack(self):
-        for i in self.items:
-            print i
+        print self.items[::-1]
 
 class MyStack:
     def __init__(self):
