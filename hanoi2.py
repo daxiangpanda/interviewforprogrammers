@@ -19,11 +19,20 @@ def hanoi2(num,left,mid,right):
     for i in range(num,0,-1):
         lS.push(i)
     record = Action()
+    record = [record.No]
     step = 0
     while(rS.size() != num+1):
         step+=fStackToStack(record,Action.MToL,Action.LToM,lS,mS,left,mid)
         step+=fStackToStack(record,Action.LToM,Action.MToL,mS,lS,mid,left)
         step+=fStackToStack(record,Action.RToM,Action.MToR,mS,rS,mid,right)
-        step+=fStackToStack(record,Action.MToR,Action.RToM,rS,mS,right,mid)\
+        step+=fStackToStack(record,Action.MToR,Action.RToM,rS,mS,right,mid)
     return step
-def fStackToStack(record,preNoAct,nowAct,fStack,tStack,from,to):
+#record 记录上一步的行动情况
+def fStackToStack(record,preNoAct,nowAct,fStack,tStack,fr,to):
+    if record[0] != preNoAct and fStack.peek() < tStack.peek():
+        tStack.push(fStack.pop())
+        #print "Move "+str(tStack.peek())+" from "+fr+" to "+to
+        record[0] = nowAct
+        return 1
+    return 0
+print hanoi2(100,"left ","mid  ","right")
